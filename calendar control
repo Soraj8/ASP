@@ -1,0 +1,90 @@
+Aim:  Implement a calendar control to display different date and time formats. 
+
+ 
+
+WebForm1.aspx 
+
+ 
+
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="WebForm1.aspx.cs" 
+Inherits="P3.WebForm1" %> 
+ 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+ 
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+<head runat="server"> 
+    <title></title> 
+</head> 
+<body> 
+    <form id="form1" runat="server"> 
+    <div style="height: 297px"> 
+     
+        <asp:Calendar ID="Calendar1" runat="server" BackColor="White"  
+            BorderColor="#3366CC" BorderWidth="1px" CellPadding="1"  
+            DayNameFormat="Shortest" Font-Names="Verdana" Font-Size="8pt"  
+            ForeColor="#003399" Height="226px"  
+            onselectionchanged="Calendar1_SelectionChanged" Width="263px"> 
+            <DayHeaderStyle BackColor="#99CCCC" ForeColor="#336666" Height="1px" /> 
+            <NextPrevStyle Font-Size="8pt" ForeColor="#CCCCFF" /> 
+            <OtherMonthDayStyle ForeColor="#999999" /> 
+            <SelectedDayStyle BackColor="#009999" Font-Bold="True" ForeColor="#CCFF99" /> 
+            <SelectorStyle BackColor="#99CCCC" ForeColor="#336666" /> 
+            <TitleStyle BackColor="#003399" BorderColor="#3366CC" BorderWidth="1px"  
+                Font-Bold="True" Font-Size="10pt" ForeColor="#CCCCFF" Height="25px" /> 
+            <TodayDayStyle BackColor="#99CCCC" ForeColor="White" /> 
+            <WeekendDayStyle BackColor="#CCCCFF" /> 
+        </asp:Calendar> 
+        <br /> 
+        <br /> 
+        Selected Date:  
+        <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox> 
+     
+    </div> 
+    </form> 
+</body> 
+</html> 
+ 
+
+ 
+
+ 
+
+
+
+WebForm1.aspx.cs 
+
+ 
+
+using System; 
+using System.Collections.Generic; 
+using System.Linq; 
+using System.Web; 
+using System.Web.UI; 
+using System.Web.UI.WebControls; 
+ 
+namespace P3 
+{ 
+    public partial class WebForm1 : System.Web.UI.Page 
+    { 
+
+
+        protected void Page_Load(object sender, EventArgs e) 
+        { 
+ 
+        } 
+ 
+        protected void Calendar1_SelectionChanged(object sender, EventArgs e) 
+        { 
+            TextBox1.Text = Calendar1.SelectedDate.ToString("dd-MM-yyyy"); 
+            Response.Write(Calendar1.SelectedDate.ToString()); 
+            Response.Write("<br>" + Calendar1.SelectedDate.ToShortDateString()); 
+            Response.Write("<br>" + Calendar1.SelectedDate.ToLongDateString()); 
+            Response.Write("<br>" + Calendar1.SelectedDate.ToLongTimeString()); 
+            Response.Write("<br>" + Calendar1.SelectedDate.ToString("dd/MM/yy")); 
+            Response.Write("<br>" + Calendar1.SelectedDate.ToString("ddd/MMM/yyyy")); 
+            Response.Write("<br>" + Calendar1.SelectedDate.ToString("dddd/MMMM/yyyy")); 
+            Response.Write("<br>" + Calendar1.SelectedDate.ToString("dddd:MMMM:yyyy")); 
+        } 
+    } 
+} 
