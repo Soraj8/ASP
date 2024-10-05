@@ -1,0 +1,24 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+namespace P1D
+{
+class Program
+{
+static void Main(string[] args)
+{
+Console.WriteLine("Enter the number of terms in the Fibonacci series:");
+int terms = Convert.ToInt32(Console.ReadLine());
+int o = 0, vo = 1, c = 0;
+Console.WriteLine("Fibonacci Series:");
+for (int i = 1; i <= terms; i++)
+{
+Console.Write(c + " ");
+c = o + vo;
+vo = o;
+o = c;
+}
+Console.ReadKey();
+}
+}
