@@ -1,0 +1,79 @@
+Aim: pramaterized constructor 
+WebForm1.aspx 
+
+ 
+
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="WebForm1.aspx.cs" 
+Inherits="ParameterizedConstructor.WebForm1" %> 
+ 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+ 
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+<head runat="server"> 
+    <title></title> 
+</head> 
+<body> 
+    <form id="form1" runat="server"> 
+    <h2> 
+        Parameterized Constructor 
+    </h2> 
+    <div style="height: 171px"> 
+     
+        <asp:Button ID="Button1" runat="server" Text="Show Result"  
+            onclick="Button1_Click" /> 
+        <br /> 
+        <br /> 
+        <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label> 
+     
+    </div> 
+    </form> 
+</body> 
+</html> 
+ 
+WebForm1.aspx.cs 
+
+ 
+
+using System; 
+using System.Collections.Generic; 
+using System.Linq; 
+using System.Web; 
+using System.Web.UI; 
+using System.Web.UI.WebControls; 
+ 
+namespace ParameterizedConstructor 
+{ 
+    public partial class WebForm1 : System.Web.UI.Page 
+    { 
+        protected void Page_Load(object sender, EventArgs e) 
+        { 
+ 
+        } 
+ 
+        protected void Button1_Click(object sender, EventArgs e) 
+        { 
+            paramterize obj = new paramterize("Studio", "2010"); 
+            Label1.Text = obj.print(); 
+        } 
+        public class paramterize 
+        { 
+            string name; 
+            string version; 
+            public paramterize(string name, string version) 
+
+
+            { 
+                this.name = name; 
+                this.version = version; 
+            } 
+            public string print() 
+            { 
+                return (" I am " + this.name + " " + this.version + " from parameterized 
+Constructor"); 
+            } 
+        } 
+    } 
+} 
+
+ 
