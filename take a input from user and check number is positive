@@ -1,0 +1,84 @@
+A] Aim: take a input from user and check number is positive and apply requirement 
+exception handling. 
+
+ 
+
+WebForm1.aspx 
+
+ 
+
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="WebForm1.aspx.cs" 
+Inherits="P5A.WebForm1" %> 
+ 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+ 
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+<head runat="server"> 
+    <title></title> 
+</head> 
+<body> 
+    <form id="form1" runat="server"> 
+    <div> 
+        <asp:Label ID="Label1" runat="server" Text="Enter Number:"></asp:Label> 
+        <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox> 
+    </div> 
+    <br /> 
+    &nbsp;&nbsp;&nbsp; 
+    <asp:Button ID="Button1" runat="server" onclick="Button1_Click" Text="Submit" /> 
+    <br /> 
+    </form> 
+</body> 
+</html> 
+ 
+ 
+WebForm1.aspx.cs 
+
+ 
+
+using System; 
+using System.Collections.Generic; 
+using System.Linq; 
+using System.Web; 
+using System.Web.UI; 
+using System.Web.UI.WebControls; 
+ 
+namespace P5A 
+{ 
+    class NegativeException:Exception 
+    { 
+        public NegativeException(string msg) 
+            : base(msg) 
+        { } 
+    } 
+    public partial class WebForm1 : System.Web.UI.Page 
+    { 
+        protected void Page_Load(object sender, EventArgs e) 
+        { 
+ 
+        } 
+ 
+        protected void Button1_Click(object sender, EventArgs e) 
+        { 
+            int num; 
+            try 
+
+
+            { 
+                num = int.Parse(TextBox1.Text); 
+                if (num < 0) 
+                { 
+                    throw new NegativeException("Negative Number"); 
+                } 
+                else 
+                { 
+                    Response.Write("Positive Number"); 
+                } 
+            } 
+            catch (Exception ex) 
+            { 
+                Response.Write(ex.Message); 
+            } 
+        } 
+    } 
+} 
