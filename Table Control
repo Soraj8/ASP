@@ -1,0 +1,108 @@
+B] Aim: Table Control: take student details from user and display that record in table 
+control. 
+Create a new Web Application, remove About.aspx and Default.aspx file from project files in Solution 
+Explorer, Right click on Project -> add -> new item -> select web Form And rename it to Default.aspx 
+
+ 
+
+Default.aspx 
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="WebForm1.aspx.cs" Inherits=" 
+Table.WebForm1" %> 
+ 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+ 
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+<head runat="server"> 
+    <title></title> 
+</head> 
+<body style="background-color:aliceblue"> 
+     <center> 
+     <h1>Student Form</h1><hr /> 
+     <form id="form1" runat="server"> 
+         <div> 
+             <label for="Label1">Student Name : </label> 
+             <asp:TextBox ID="TextBox1" runat="server" /><br /><br /> 
+             <label for="Label3">Student ID : </label> 
+             <asp:TextBox ID="TextBox2" runat="server" /><br /><br /> 
+             <asp:Label ID="Label3" runat="server" Text="Course Name : "></asp:Label> 
+             <asp:TextBox ID="TextBox3" runat="server"></asp:TextBox><br /><br /> 
+             <asp:Label ID="Label4" runat="server" Text="Date of Birth : "></asp:Label> 
+             <asp:TextBox ID="TextBox4" runat="server"></asp:TextBox><br /><br /> 
+             <asp:Button ID="Button1" runat="server" Text="Submit" 
+OnClick="Button1_Click"/><br/><br /> 
+             <asp:Table ID="Tabel1" runat="server" Border="ActiveBorder"> 
+                 <asp:TableHeaderRow> 
+                     <asp:TableHeaderCell>Student Name</asp:TableHeaderCell> 
+                     <asp:TableHeaderCell>Student ID</asp:TableHeaderCell> 
+                     <asp:TableHeaderCell>Course Name</asp:TableHeaderCell> 
+                     <asp:TableHeaderCell>Date of Birth</asp:TableHeaderCell> 
+                 </asp:TableHeaderRow> 
+             </asp:Table> 
+         </div> 
+     </form> 
+     </center> 
+</body> 
+</html> 
+ 
+
+
+
+
+
+ 
+
+Default.aspx.cs 
+
+ 
+
+using System; 
+using System.Collections.Generic; 
+using System.Linq; 
+using System.Web; 
+using System.Web.UI; 
+using System.Web.UI.WebControls; 
+ 
+namespace Table 
+{ 
+    public partial class WebForm1 : System.Web.UI.Page 
+    { 
+
+
+        protected void Page_Load(object sender, EventArgs e) 
+        { 
+        } 
+ 
+        protected void Button1_Click(object sender, EventArgs e) 
+        { 
+            string name = TextBox1.Text; 
+            string studentID = TextBox2.Text; 
+            string coursename = TextBox3.Text; 
+            string DOB = TextBox4.Text; 
+ 
+            TableRow newRow = new TableRow(); 
+            TableCell nameCell = new TableCell(); 
+            TableCell idCell = new TableCell(); 
+            TableCell courseCell = new TableCell(); 
+            TableCell dob = new TableCell(); 
+ 
+            nameCell.Text = name; 
+            idCell.Text = studentID; 
+            courseCell.Text = coursename; 
+            dob.Text = DOB; 
+ 
+            newRow.Cells.Add(nameCell); 
+            newRow.Cells.Add(idCell); 
+            newRow.Cells.Add(courseCell); 
+            newRow.Cells.Add(dob); 
+ 
+            Tabel1.Rows.Add(newRow); 
+ 
+            TextBox1.Text = string.Empty; 
+            TextBox2.Text = string.Empty; 
+            TextBox3.Text = string.Empty; 
+            TextBox4.Text = string.Empty; 
+        } 
+ 
+    } 
+} 
