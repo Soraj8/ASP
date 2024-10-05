@@ -1,6 +1,6 @@
-A] Aim: create a calculator using ASP.NET Web Application
-Create a new Web Application, remove About.aspx and Default 
-Explorer, Right click on Project -> add -> new item -> select web
+A] Aim: create a calculator using ASP.NET Web Application 
+Create a new Web Application, remove About.aspx and Default.aspx file from project files in Solution 
+Explorer, Right click on Project -> add -> new item -> select web Form And rename it to Default.aspx 
 
  
 
@@ -10,11 +10,11 @@ Include the following code in body of Default.aspx
 
 Default.aspx 
  
-<%@ Page Language="C#" AutoEventWireup="true" CodeBehind= 
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="WebForm1.aspx.cs" Inherits=" 
 calculator.WebForm1" %> 
  
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional 
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
  
 <html xmlns="http://www.w3.org/1999/xhtml"> 
 <head runat="server"> 
@@ -25,21 +25,21 @@ calculator.WebForm1" %>
     <div> 
      
         Enter First Number : 
-        <asp:TextBox ID="TextBox1" runat="server"></asp 
+        <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox> 
         <br /> 
         <br /> 
         Enter Second Number : 
-        <asp:TextBox ID="TextBox2" runat="server"></asp 
+        <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox> 
         <br /> 
         <br /> 
-        <asp:Button ID="Button1" runat="server" onclick= 
+        <asp:Button ID="Button1" runat="server" onclick="Button1_Click" Text="Add" /> 
 &nbsp;&nbsp;&nbsp; 
-        <asp:Button ID="Button2" runat="server" onclick=
+        <asp:Button ID="Button2" runat="server" onclick="Button2_Click"  
             Text="Subtract" /> 
 &nbsp;&nbsp;&nbsp; 
-        <asp:Button ID="Button3" runat="server" onclick=
+        <asp:Button ID="Button3" runat="server" onclick="Button3_Click" Text="Divide" /> 
 &nbsp;&nbsp;&nbsp; 
-        <asp:Button ID="Button4" runat="server" onclick=
+        <asp:Button ID="Button4" runat="server" onclick="Button4_Click"  
             Text="Multiply" /> 
         <br /> 
         <br /> 
@@ -49,7 +49,23 @@ calculator.WebForm1" %>
     </form> 
 </body> 
 </html> 
+ 
 
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
 
 
 Default.aspx.cs 
