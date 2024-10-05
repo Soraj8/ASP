@@ -46,9 +46,7 @@ OnClick="Button1_Click"/><br/><br />
 </html> 
  
 
-
-
-
+ 
 
  
 
@@ -106,3 +104,9 @@ namespace Table
  
     } 
 } 
+
+ 
+
+ 
+
+OUTPUT: 
