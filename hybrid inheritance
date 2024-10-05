@@ -1,0 +1,112 @@
+B] Aim:  hybrid inheritance 
+WebForm1.aspx 
+
+ 
+
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="WebForm1.aspx.cs" 
+Inherits="P6A.WebForm1" %> 
+ 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+ 
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+<head runat="server"> 
+    <title></title> 
+</head> 
+<body style="height: 209px"> 
+    <form id="form1" runat="server"> 
+    <h2> 
+        Hybrid Inheritance 
+    </h2> 
+    <div> 
+        <asp:Button ID="Button1" runat="server" onclick="Button1_Click" Text="Button" /> 
+        <br /> 
+        <br /> 
+        <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label> 
+        <br /> 
+        <br /> 
+        <asp:Label ID="Label2" runat="server" Text="Label"></asp:Label> 
+        <br /> 
+        <br /> 
+        <asp:Label ID="Label3" runat="server" Text="Label"></asp:Label> 
+        <br /> 
+        <br /> 
+        <asp:Label ID="Label4" runat="server" Text="Label"></asp:Label> 
+        <br /> 
+        <br /> 
+        <asp:Label ID="Label5" runat="server" Text="Label"></asp:Label> 
+        <br /> 
+        <br /> 
+        <asp:Label ID="Label6" runat="server" Text="Label"></asp:Label> 
+    </div>     
+    </form> 
+</body> 
+</html> 
+
+ 
+
+WebForm1.aspx.cs 
+
+ 
+
+using System; 
+using System.Collections.Generic; 
+using System.Linq; 
+using System.Web; 
+using System.Web.UI; 
+using System.Web.UI.WebControls; 
+ 
+namespace P6A 
+{ 
+    public partial class WebForm1 : System.Web.UI.Page 
+    { 
+        protected void Page_Load(object sender, EventArgs e) 
+        { 
+        } 
+ 
+        protected void Button1_Click(object sender, EventArgs e) 
+
+
+        { 
+ 
+            Son obj = new Son(); 
+            Daughter obj1 = new Daughter(); 
+            Label1.Text = Convert.ToString(obj.Phone()); 
+            Label2.Text = Convert.ToString(obj.Home()); 
+            Label3.Text = Convert.ToString(obj1.Jwell()); 
+            Label4.Text = Convert.ToString(obj1.Home()); 
+            Label5.Text = Convert.ToString(obj.Village()); 
+            Label6.Text = Convert.ToString(obj1.Village()); 
+ 
+        } 
+        public class GrandFather 
+        { 
+            public string Village() 
+            { 
+                return ("This is Village from GrandFather Class"); 
+            } 
+        } 
+ 
+        public class Father : GrandFather 
+        { 
+            public string Home() 
+            { 
+                return ("This is Home from Father Class"); 
+            } 
+        } 
+        public class Son : Father 
+        { 
+            public string Phone() 
+            { 
+                return ("Phone belongs to Son"); 
+            } 
+        } 
+        public class Daughter : Father 
+        { 
+            public string Jwell() 
+            { 
+                return ("Jwellery belongs to Daughter"); 
+            } 
+        } 
+    } 
+} 
